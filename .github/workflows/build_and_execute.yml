@@ -29,8 +29,9 @@ jobs:
 
   run-pushed:
     needs: build-and-push
-    runs-on: ghcr.io/asherglick/ghcrtesting:latest
-
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/asherglick/ghcrtesting:latest
     steps:
       - name: Display File
         run: cat /myfile.txt
