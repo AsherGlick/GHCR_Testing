@@ -29,7 +29,7 @@ jobs:
 
   run-pushed:
     needs: build-and-push
-    runs-on: ghcr.io/${OWNER_LC}/ghcrtesting:latest
+    runs-on: ghcr.io/asherglick/ghcrtesting:latest
 
     steps:
       - name: Display File
