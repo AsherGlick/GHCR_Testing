@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  docker:
+  build-and-push:
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -23,7 +23,14 @@ jobs:
 
       - name: Push Image
         run: |
-          IMAGE_ID="ghcr.io/${OWNER_LC}/ghcrtesting2:latest"
+          IMAGE_ID="ghcr.io/${OWNER_LC}/ghcrtesting:latest"
           docker build . -t "$IMAGE_ID"
           docker push "$IMAGE_ID"
 
+  run-pushed:
+    needs: build-and-push
+    runs-on: ghcr.io/${OWNER_LC}/ghcrtesting:latest
+
+    steps:
+      - name: Display File
+        run: cat /myfile.txt
