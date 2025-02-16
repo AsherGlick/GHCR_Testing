@@ -23,7 +23,7 @@ jobs:
 
       - name: Push Image
         run: |
-          IMAGE_ID="ghcr.io/${OWNER_LC}/ghcrtesting:latest"
+          IMAGE_ID="ghcr.io/${OWNER_LC}2/ghcrtesting:latest"
           docker build . -t "$IMAGE_ID"
           docker push "$IMAGE_ID"
 
